@@ -43,7 +43,7 @@ names(roulette_vector) <- days_vector
 #   A[2]+B[2], etc.)
 # sum(my_vector): expects a vector, returns the sum of all elements of the
 #   vector 
-# A > B: compares A and B; returns TRUE if A > B and FALSE if not
+# A > B: "greater than" comparison operator - returns logical value
 
 # Examples:
 A_vector <- c(1, 2, 3)
@@ -64,3 +64,21 @@ total_week # Expected: -84
 # Check if you realized higher gains in poker than roulette
 total_poker > total_roulette
 
+# ---SELECTING (ACCESSING) VECTOR ELEMENTS---
+# my_vector[#]: access by index number (***1-BASED, NOT 0)
+# my_vector[vector_of_indices]: returns vector containing elements at specified 
+#   indices
+#   * my_vector[c(#, #, ...)]
+#   * my_vector[c(#:#)]
+# my_vector[name]: access by element name
+# num_a:num:b : expects two natural numbers, returns a vector of all natural 
+#   numbers between num:a and num:b
+
+
+# Examples: 
+poker_wednesday <- poker_vector[3] # 3rd element of poker 
+
+# Identical ways to select poker winnings for Tues-Thurs only
+poker_midweek <- poker_vector[c(2, 3, 4)] 
+poker_midweek <- poker_vector[c(2:4)]
+poker_midweek <- poker_vector[c("Tuesday, Wednesday, Thursday")]
