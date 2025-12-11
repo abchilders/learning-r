@@ -43,6 +43,7 @@ names(roulette_vector) <- days_vector
 #   A[2]+B[2], etc.)
 # sum(my_vector): expects a vector, returns the sum of all elements of the
 #   vector 
+# mean(my_vector): expects a vector, returns the average of the vector's values
 # A > B: "greater than" comparison operator - returns logical value
 
 # Examples:
@@ -61,6 +62,9 @@ total_roulette <- sum(roulette_vector)
 total_week <- total_poker + total_roulette
 total_week # Expected: -84
 
+# Average daily profit overall
+mean(total_daily)
+
 # Check if you realized higher gains in poker than roulette
 total_poker > total_roulette
 
@@ -71,9 +75,25 @@ total_poker > total_roulette
 #   * my_vector[c(#, #, ...)]
 #   * my_vector[c(#:#)]
 # my_vector[name]: access by element name
+# 
 # num_a:num:b : expects two natural numbers, returns a vector of all natural 
 #   numbers between num:a and num:b
-
+#
+# You can use comparison operators on a vector - expects a vector. For each
+#   element in the vector, applies the comparison criteria and returns a logical
+#   value; returns a vector containing those logical values.
+# < less than 
+# > greater than 
+# <= less than or equal to 
+# >= greater than or equal to 
+# == equal to 
+# != not equal to
+#
+# my_vector[some_vector >/</==/etc some_value]: returns a vector containing only
+#   the elements where the logical expression is true for each element in
+#   some_vector
+#   * HINT: the logical expression can itself be a vector, e.g. 
+#   my_vector[selection_vector]
 
 # Examples: 
 poker_wednesday <- poker_vector[3] # 3rd element of poker 
@@ -82,3 +102,15 @@ poker_wednesday <- poker_vector[3] # 3rd element of poker
 poker_midweek <- poker_vector[c(2, 3, 4)] 
 poker_midweek <- poker_vector[c(2:4)]
 poker_midweek <- poker_vector[c("Tuesday, Wednesday, Thursday")]
+
+# Create a vector showing on which days we won money in poker-- should show TRUE 
+# for each day that earnings were net positive
+selection_vector <- poker_vector > 0 
+selection_vector # Expected: TRUE FALSE TRUE FALSE TRUE, i.e. won money on M,W,F
+
+# Create a vector that only contains data for the days on which we won money in 
+# poker
+poker_winning_days <- poker_vector[selection_vector]
+poker_winning_days
+poker_winning_days <- poker_vector[poker_vector > 0] # identical to above
+poker_winning_days
