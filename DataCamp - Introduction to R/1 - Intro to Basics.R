@@ -52,3 +52,8 @@ my_logical <- FALSE
 class(my_numeric) # expected: numeric
 class(my_character) # expected: character
 class(my_logical) # expected: logical
+
+# ---USEFUL TIPS---
+# highlight line(s) of the script to run and press ctrl+enter to run just those
+# to run a whole script at once, press ctrl+shift+enter
+# can type commands directly in the console to run too
