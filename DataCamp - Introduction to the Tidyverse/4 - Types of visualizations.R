@@ -10,10 +10,14 @@ library(ggplot2)
 #    * scale_y_log10(): display y-axis on logarithmic scale
 #    * labs(x = "x-axis label", 
 #           y = "y-axis label", 
+#           fill = "color legend label", 
 #           title = "insert title here", 
 #           subtitle = "insert subtitle here", 
 #           caption = "insert caption below plot", 
 #           alt = "add alt text to plot"): add text/labels to graph
+#    * ggtitle("insert title here")
+#    * xlab("x-axis label")
+#    * ylab("y-axis label")
 # * cool cheat sheets:
 #    * tidyverse (dplyr, ggplot2): https://media.datacamp.com/legacy/image/upload/v1676302697/Marketing/Blog/Tidyverse_Cheat_Sheet.pdf
 #    * ggplot2: https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf 
