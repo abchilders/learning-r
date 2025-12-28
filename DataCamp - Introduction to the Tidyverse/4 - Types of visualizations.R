@@ -50,7 +50,7 @@ ggplot(by_year, aes(x = year, y = medianGdpPercap, color = continent)) +
 
 # ---BAR PLOTS---
 # * used for: comparing numeric values across several discrete categories
-#    * displays one bar per category
+#    * displays one bar per category (read: 1 numeric value per 1 category)
 # * axes: x = categorical variable, y = numeric variable
 # * ggplot(...) + geom_col(): creates bar plot
 #    * numeric axis always starts at 0 
@@ -89,6 +89,7 @@ ggplot(gapminder_1952, aes(x = pop)) +
 # * used for: comparing the distribution of a numeric variable among several 
 #   categories
 #    * (like a histogram but can compare among categories)
+#    * (read: many numerical values per 1 category)
 # * axes: x = categorical variable, y = a numeric variable
 # * ggplot(...) + geom_boxplot(): creates boxplot
 # * HOW TO READ A BOXPLOT: 
