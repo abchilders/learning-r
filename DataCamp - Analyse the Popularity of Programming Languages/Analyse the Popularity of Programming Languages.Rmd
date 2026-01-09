@@ -1,0 +1,120 @@
+---
+title: "Analyze the Popularity of Programming Languages"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Description 
+
+
+Project prompt: 
+
+> How can you determine which programming languages and technologies are most widely used? Which languages are gaining or losing popularity, helping you decide where to focus your efforts?
+>
+> One excellent data source is Stack Overflow, a programming question-and-answer site with more than 16 million questions on programming topics. Each Stack Overflow question is tagged with a label identifying its topic or technology. By counting the number of questions related to each technology, you can estimate the popularity of different programming languages.
+> 
+> In this project, you will use data from the [Stack Exchange Data Explorer](https://data.stackexchange.com/) to examine the relative popularity of R compared to other programming languages.
+> 
+> You'll work with a dataset containing one observation per tag per year, including the number of questions for that tag and the total number of questions that year.
+
+`stack_overflow_data.csv`
+
+|Column|Description|
+|------|-----------|
+|`year`|The year the question was asked (2008-2020)|
+|`tag`|A word or phrase that describes the topic of the question, such as the programming language|
+|`num_questions`|The number of questions with a certain tag in that year|
+|`year_total`|The total number of questions asked in that year|
+
+
+# Assumptions
+
+
+Assumptions about dataset:  
+
+- All questions about R are tagged with "r".  
+- Each combination of year and tag occurs no more than once. (i.e. tags are never duplicated within the same year)
+
+
+# Setup
+
+
+```{r}
+# Load necessary packages
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+```
+
+```{r}
+# Load the dataset
+data <- read_csv("stack_overflow_data.csv")
+```
+```{r}
+# View the dataset
+head(data)
+```
+
+
+# Analysis 
+
+
+## R-related questions 
+
+
+Question 1: 
+
+> What was the percentage of R questions in 2020? Save the result in a data frame, r_2020, containing five columns: year, tag, num_questions, year_total, and percentage.
+
+```{r}
+r_2020 <- data %>% 
+	filter(year == 2020, tag == "r") %>%
+	mutate(percentage = num_questions / year_total * 100)
+
+r_2020
+```
+
+
+## Most-asked-about programming languages
+
+Question 2: 
+
+> Identify the five programming language tags with the highest total number of questions asked between 2015 and 2020 (inclusive). Save the tag names as "highest_tags". This variable can be a character vector, tibble, or data frame (if the latter, please use the column name "tag"). 
+
+```{r}
+highest_tags <- data %>%
+	# Filter for language tags with questions asked between 2015 and 2020
+	filter(year >= 2015 & year <= 2020) %>%
+	# For each programming language tag, calculate total number of questions asked 
+	group_by(tag) %>%
+	summarise(total_num_questions = sum(num_questions)) %>%
+	ungroup() %>%
+	# Then get the five language tags with highest number of questions asked
+	slice_max(total_num_questions, n=5) %>%
+	arrange(desc(total_num_questions))
+
+highest_tags
+```
+
+```{r}
+# Visualise this data
+ggplot(highest_tags, aes(x = reorder(tag, -total_num_questions), y = total_num_questions, fill = tag)) + 
+	geom_col() + 
+	labs(x = "Programming language", 
+		 y = "Number of questions asked", 
+		 title = str_wrap("Programming Languages with the Most Questions Asked on Stack Overflow Between 2015 
+						  and 2020", 60),
+		 alt = "A bar plot showing the number of questions asked about five programming languages")
+```
+
+
+# Final thoughts and further questions
+
+
+I would like to look further into the context in which these languages have become popular-- some questions might include:  
+
+- What popular technologies were introduced between 2008-2020 that are related to the five programming language tags with the most questions? 
+  - For example, React was released in 2013 and is maintained and used by Facebook-- how did this affect the number of JavaScript-related questions?
+  - Or, did the number of Python questions at the same time as, or shortly after, the release of ChatGPT in 2022?) 
