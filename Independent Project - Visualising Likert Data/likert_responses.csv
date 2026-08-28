@@ -1,0 +1,49 @@
+respondent,question_id,statement,response_num
+1,1,The food was good. ,5
+2,1,The food was good. ,5
+3,1,The food was good. ,5
+4,1,The food was good. ,5
+5,1,The food was good. ,5
+6,1,The food was good. ,5
+7,1,The food was good. ,5
+8,1,The food was good. ,4
+1,2,My needs were met.,5
+2,2,My needs were met.,5
+3,2,My needs were met.,5
+4,2,My needs were met.,5
+5,2,My needs were met.,5
+6,2,My needs were met.,5
+7,2,My needs were met.,5
+8,2,My needs were met.,5
+1,3,I felt engaged throughout.,5
+2,3,I felt engaged throughout.,5
+3,3,I felt engaged throughout.,5
+4,3,I felt engaged throughout.,5
+5,3,I felt engaged throughout.,5
+6,3,I felt engaged throughout.,5
+7,3,I felt engaged throughout.,5
+8,3,I felt engaged throughout.,5
+1,4,My mood improved as a result.,5
+2,4,My mood improved as a result.,5
+3,4,My mood improved as a result.,5
+4,4,My mood improved as a result.,5
+5,4,My mood improved as a result.,5
+6,4,My mood improved as a result.,5
+7,4,My mood improved as a result.,5
+8,4,My mood improved as a result.,4
+1,5,The person I spoke to was helpful. ,4
+2,5,The person I spoke to was helpful. ,3
+3,5,The person I spoke to was helpful. ,5
+4,5,The person I spoke to was helpful. ,4
+5,5,The person I spoke to was helpful. ,3
+6,5,The person I spoke to was helpful. ,5
+7,5,The person I spoke to was helpful. ,5
+8,5,The person I spoke to was helpful. ,3
+1,6,"Overall, I would rate this experience as:",4
+2,6,"Overall, I would rate this experience as:",4
+3,6,"Overall, I would rate this experience as:",5
+4,6,"Overall, I would rate this experience as:",5
+5,6,"Overall, I would rate this experience as:",4
+6,6,"Overall, I would rate this experience as:",5
+7,6,"Overall, I would rate this experience as:",5
+8,6,"Overall, I would rate this experience as:",4
